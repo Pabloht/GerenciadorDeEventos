@@ -80,4 +80,16 @@ public class MinistranteDAO {
 
         return ministrantes;
     }
+    
+    public Ministrante retornarMinistrante(int id) {
+
+        Ministrante ministrante = null;
+        try {
+            ministrante = entityManager.find(Ministrante.class, id);
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+        }
+        return ministrante;
+    }
 }

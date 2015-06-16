@@ -42,6 +42,19 @@ public class Ministrante {
     public Ministrante() {
     }
 
+    public Ministrante(String email, String nome, String telefone) {
+        this.email = email;
+        this.nome = nome;
+        this.telefone = telefone;
+    }
+
+    public Ministrante(int id, String email, String nome, String telefone) {
+        this.id = id;
+        this.email = email;
+        this.nome = nome;
+        this.telefone = telefone;
+    }
+
     public int getId() {
         return id;
     }
