@@ -1,13 +1,13 @@
 package br.com.fean.si.poo2.dao;
 
-import br.com.fean.si.poo2.model.Evento;
+import br.com.fean.si.poo2.model.Ministrante;
 import br.com.fean.si.poo2.util.EntityManagerUtil;
 import java.util.ArrayList;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
-public class EventoDAO {
+public class MinistranteDAO {
 
     private final EntityManager entityManager = EntityManagerUtil.getEntityManager();
 
@@ -15,7 +15,7 @@ public class EventoDAO {
         return entityManager;
     }
 
-    public String incluirEvento(Evento a) {
+    public String incluirMinistrante(Ministrante a) {
         String retorno = "Dados gravados com sucesso";
 
         EntityTransaction tx = getEntityManager().getTransaction();
@@ -35,7 +35,7 @@ public class EventoDAO {
 
     }
 
-    public String alterarEvento(Evento a) {
+    public String alterarMinistrante(Ministrante a) {
         String retorno = "Dados alterados com sucesso";
         EntityTransaction tx = getEntityManager().getTransaction();
 
@@ -53,7 +53,7 @@ public class EventoDAO {
         return retorno;
     }
 
-    public String apagarEvento(Evento a) {
+    public String apagarMinistrante(Ministrante a) {
         String retorno = "Dados apagados com sucesso";
         EntityTransaction tx = getEntityManager().getTransaction();
 
@@ -72,24 +72,12 @@ public class EventoDAO {
 
     }
 
-    public ArrayList<Evento> listarEventos() {
+    public ArrayList<Ministrante> listarMinistrante() {
 
-        ArrayList<Evento> eventos = new ArrayList<Evento>();
-        Query query = entityManager.createQuery("select c from Evento c");
-        eventos = (ArrayList<Evento>) query.getResultList();
+        ArrayList<Ministrante> ministrantes = new ArrayList<Ministrante>();
+        Query query = entityManager.createQuery("select c from Ministrante c");
+        ministrantes = (ArrayList<Ministrante>) query.getResultList();
 
-        return eventos;
-    }
-
-    public Evento retornarEvento(int id) {
-
-        Evento evento = null;
-        try {
-            evento = entityManager.find(Evento.class, id);
-        } catch (Exception e) {
-            // TODO: handle exception
-            e.printStackTrace();
-        }
-        return evento;
+        return ministrantes;
     }
 }

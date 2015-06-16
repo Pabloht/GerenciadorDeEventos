@@ -75,7 +75,7 @@ public class UsuarioDAO {
     public ArrayList<Usuario> listarEventos() {
 
         ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
-        Query query = entityManager.createQuery("select c from Curso c");
+        Query query = entityManager.createQuery("select c from Usuario c");
         usuarios = (ArrayList<Usuario>) query.getResultList();
 
         return usuarios;
